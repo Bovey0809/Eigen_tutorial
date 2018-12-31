@@ -82,4 +82,5 @@ int main(){
   cout<<"Broardcasting m: \n"<<m<<endl;
   // find the neariest neighbor of vector v2 in m
   cout<<"find the neariest neighbor of vector v2 in m:\n"<<(m.colwise() - v2).colwise().squaredNorm().maxCoeff();
+  
 }
