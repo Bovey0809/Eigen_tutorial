@@ -82,5 +82,19 @@ int main(){
   cout<<"Broardcasting m: \n"<<m<<endl;
   // find the neariest neighbor of vector v2 in m
   cout<<"find the neariest neighbor of vector v2 in m:\n"<<(m.colwise() - v2).colwise().squaredNorm().maxCoeff();
-  
+  // v2 mu <<endl;
+  cout<<"M matrix: \n"<<m<<endl<<"v2:\n"<<v2<<endl;
+  cout<<"sum of the matrix \n"<< (m * v2.asDiagonal()).rowwise().sum()<<"\n";
+  // try init with a value
+  MatrixXd samem = MatrixXd::Constant(3, 3, 1.23);
+  cout<<"same value m: \n"<<samem<<endl;
+  VectorXd weights = VectorXd(10);
+  weights = VectorXd::Constant(10, 1.2);
+  cout<<"vector with same value: \n"<<weights<<endl;
+  cout<<"calculate P possiblity\n";
+  cout<<(m.colwise() - v2).array().sqrt().matrix().rowwise().sum()<<endl;
+  cout<<"v2 * v2.T\n"<<v2 * v2.transpose();
+  cout<<(m.colwise() -v2) * (m.colwise() - v2).transpose();
+  cout<<"here is the top left corner \n"<<m.topLeftCorner(2, 3);
+  cout<<"here is the top left corner norm \n"<<m.topLeftCorner(2, 3).colwise().norm();
 }
