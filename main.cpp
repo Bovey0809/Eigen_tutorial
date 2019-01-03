@@ -95,6 +95,15 @@ int main(){
   cout<<(m.colwise() - v2).array().sqrt().matrix().rowwise().sum()<<endl;
   cout<<"v2 * v2.T\n"<<v2 * v2.transpose();
   cout<<(m.colwise() -v2) * (m.colwise() - v2).transpose();
-  cout<<"here is the top left corner \n"<<m.topLeftCorner(2, 3);
-  cout<<"here is the top left corner norm \n"<<m.topLeftCorner(2, 3).colwise().norm();
+  cout<<"here is the top left corner \n"<<m.topLeftCorner(2, 3)<<endl;
+  cout<<"here is the top left corner norm \n"<<m.topLeftCorner(2, 3).colwise().norm()<<endl;
+  //Calculate phi
+  ArrayXd phi;
+  phi = m.row(1).array() / m.row(0).array();
+  cout<<"calculate phi:\n"<<phi;
+  // Atan2
+  ArrayXd v = ArrayXd::LinSpaced(5,0,1);
+  cout << phi.atan() << endl;
+  // cout<<"Atan2 on matrix: \n"<<m.col(0).atan();
+  cout<<"Try to use col \n"<<(m.col(1).array() / m.col(0).array()).tan();
 }
